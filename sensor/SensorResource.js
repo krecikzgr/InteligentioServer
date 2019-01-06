@@ -71,10 +71,11 @@ module.exports = server => {
     }), async (req,res,next) => {
         let responseBuilder = new ResponseBuilder();
         const sceneId = parseInt(req.params.id, 10);
-        let scene = new Sensor()
-        let result = await scene.loadWith(sceneId)
+        let sensor = new Sensor()
+        let result = await sensor.loadWith(sceneId)
         if( result == true ) {
-            responseBuilder.withMessage("Sensor \'" + scene.name + "\' is actiaved " + req.body.isActive).withJsonData(scene).build(res)
+            await sensor.setActive(req.body.isActive);
+            responseBuilder.withMessage("Sensor \'" + sensor.name + "\' is actiaved " + req.body.isActive).withJsonData(sensor).build(res)
         } else {
             responseBuilder.withHttpResourceNotAvailable().withMessage("Resource not found").build(res)
         }

@@ -44,6 +44,16 @@ class Room extends DatabaseObject {
               })); 
         }
     }
+
+    async getNumberOfEvents() {
+        let results = await this.getRoomSensors()
+        var numberOfEvents = 0
+        await Promise.all(results.map(async (element) => {
+            numberOfEvents += await element.getNewEvents().length
+            console.log("AWAIT RESULT " + numberOfEvents)
+          }));  
+        console.log("RETURNED NUMBER OF EVENTS " + numberOfEvents.length)
+    }
 }
 
 module.exports = {

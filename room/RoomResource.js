@@ -16,7 +16,8 @@ module.exports = server => {
         let paging = queryUtil.getPageAndSize(req);
         let results = await databaseManager.getObjects(stringUtil.capitalize(basePath), paging.start, paging.size)
         await Promise.all(results.map(async (element) => {
-            await element.isActive()
+            await element.isRoomActive()
+            element.newEvents = await element.getNumberOfEvents()
           }));
         responseBuilder.withJsonData(results).withMessage("Objects").build(res);
         next();

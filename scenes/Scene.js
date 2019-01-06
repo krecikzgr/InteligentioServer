@@ -36,7 +36,6 @@ class Scene extends DatabaseObject {
     async getSceneSettings() {
         let searchParameters  = new Object()
         searchParameters.sceneId = this.id
-        console.log("ACTIVATE SCENE PARAMETERS " + JSON.stringify(searchParameters));
         let results = await new SceneSetting().getObjectsWhere("'"+ JSON.stringify(searchParameters) + "'");
         return results
     }

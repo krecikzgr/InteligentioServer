@@ -77,7 +77,7 @@ module.exports = server => {
         if( result == true ) {
             await scene.activateScene()
             await scene.isSceneActive()
-            responseBuilder.withMessage("Scene\'" + scene.name + "\' is actiaved ").withJsonData(scene).build(res)
+            responseBuilder.withMessage("Scene \'" + scene.name + "\' is actiaved ").withJsonData(scene).build(res)
         } else {
             responseBuilder.withHttpResourceNotAvailable().withMessage("Resource not found").build(res)
         }
