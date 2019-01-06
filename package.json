@@ -1,0 +1,26 @@
+{
+  "name": "inteligentioserver",
+  "version": "1.0.0",
+  "description": "The server for the inteligention application",
+  "main": "index.js",
+  "scripts": {
+    "test": "dev",
+    "dev": "nodemon"
+  },
+  "keywords": [
+    "raspberry",
+    "pi"
+  ],
+  "author": "Adrian Kaleta",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/firestore": "^0.19.0",
+    "axios": "^0.18.0",
+    "bonjour": "^3.5.0",
+    "firebase-admin": "^6.3.0",
+    "nodemon": "^1.18.3",
+    "pg": "^7.5.0",
+    "restify": "^7.2.1",
+    "yup": "^0.26.6"
+  }
+}
